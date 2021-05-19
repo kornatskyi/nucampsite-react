@@ -31,11 +31,13 @@ export default class CampsiteInfo extends Component {
                     <h4>Comments</h4>
                     {comments.map(comment => {
                         return (
-                            <div key={comment.id}>
-                                <p>{comment.text}</p>
-                                <span>--- {comment.author}</span>
-                                <span>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}
-                                </span>
+                            <div className="container">
+                                <div key={comment.id}>
+                                    <p>{comment.text}</p>
+                                    <span>--- {comment.author}</span>
+                                    <span>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}
+                                    </span>
+                                </div>
                             </div>
                         )
                     })}
