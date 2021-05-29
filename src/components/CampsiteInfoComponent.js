@@ -6,8 +6,110 @@ import {
   CardBody,
   Breadcrumb,
   BreadcrumbItem,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+
+import { LocalForm, Control, Errors } from "react-redux-form";
+import Label from "reactstrap/lib/Label";
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
+class CommentForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isModalOpen: false,
+    };
+
+    this.toggleModal = this.toggleModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen,
+    });
+  }
+
+  handleSubmit(values) {
+    console.log("Current state is:" + JSON.stringify(values));
+    alert("Current state is:" + JSON.stringify(values));
+  }
+
+  render() {
+    return (
+      <div>
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+          <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+          <ModalBody>
+            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+              <Label htmlFor="raiting">Raiting</Label>
+              <Control.select
+                model=".raiting"
+                id="raiting"
+                name="raiting"
+                defaultValue={1}
+                placeholder="1"
+                className="form-control"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Control.select>
+
+              <Label htmlFor="author">Your name</Label>
+              <Control.text
+                model=".author"
+                id="author"
+                name="author"
+                placeholder="Your name"
+                className="form-control"
+                validators={{
+                  required,
+                  minLength: minLength(2),
+                  maxLength: maxLength(15),
+                }}
+              />
+              <Errors
+                className="text-danger"
+                model=".author"
+                show="touched"
+                component="div"
+                messages={{
+                  required: "Required",
+                  minLength: "Must be at least 2 characters",
+                  maxLength: "Must be 15 characters or less",
+                }}
+              />
+              <Label htmlFor="text">Comment</Label>
+              <Control.textarea
+                model=".text"
+                id="text"
+                name="text"
+                rows="12"
+                className="form-control"
+              />
+              <Button value="submit" type="submit">
+                Submit
+              </Button>
+            </LocalForm>
+          </ModalBody>
+        </Modal>
+        <Button outline={true} onClick={this.toggleModal}>
+          <i className="fa-lg fa fa-pencil "></i> Submit Comment
+        </Button>
+      </div>
+    );
+  }
+}
 
 function RenderCampsite({ campsite }) {
   return (
@@ -43,6 +145,7 @@ function RenderComments({ comments }) {
             </div>
           );
         })}
+        <CommentForm />
       </div>
     );
   }
