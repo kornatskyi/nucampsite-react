@@ -18,6 +18,9 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
+
+
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -45,24 +48,28 @@ class Header extends Component {
   }
 
   handleLogin(event) {
-    alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
+    alert(
+      `Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`
+    );
     this.toggleModal();
     event.preventDefault();
-}
+  }
 
   render() {
     return (
       <React.Fragment>
-        <Jumbotron fluid>
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <h1>NuCamp</h1>
-                <h2>a better way to camp</h2>
+     
+            <Jumbotron fluid>
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <h1>NuCamp</h1>
+                    <h2>a better way to camp</h2>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </Jumbotron>
+            </Jumbotron>
+
 
         <Navbar dark sticky="top" expand="md">
           <div className="container">
