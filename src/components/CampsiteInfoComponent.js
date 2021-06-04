@@ -22,7 +22,7 @@ import { Loading } from './LoadingComponent';
 
 
 //can just import in here insted pass through 3 components
-// import {addComment} from '../redux/ActionCreators'
+// import {postComment} from '../redux/ActionCreators'
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -49,7 +49,7 @@ class CommentForm extends React.Component {
 
   handleSubmit(values) {
 
-    this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text)
+    this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text)
 
     // console.log("Current state is:" + JSON.stringify(values));
     // alert("Current state is:" + JSON.stringify(values));
@@ -138,7 +138,7 @@ function RenderCampsite({ campsite }) {
   );
 }
 
-function RenderComments({ comments, addComment, campsiteId }) {
+function RenderComments({ comments, postComment, campsiteId }) {
   console.log(comments);
   if (comments) {
     return (
@@ -160,7 +160,7 @@ function RenderComments({ comments, addComment, campsiteId }) {
           );
         })}
         <CommentForm
-          addComment={addComment}
+          postComment={postComment}
           campsiteId={campsiteId}
         />
       </div>
@@ -209,7 +209,7 @@ function CampsiteInfo(props) {
           <RenderCampsite campsite={props.campsite} />
           <RenderComments
             comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             campsiteId={props.campsite.id}
           />
         </div>

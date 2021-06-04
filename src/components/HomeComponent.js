@@ -13,6 +13,7 @@ function RenderCard({ item, isLoading, errMess }) {
   }
   return (
     <Card>
+     
       <CardImg src={baseUrl + item.image} alt={item.name} />
 
       <CardBody>
@@ -41,7 +42,8 @@ function Home(props) {
           />
         </div>
         <div className="col-md m-1">
-          <RenderCard item={props.partner} />
+          <RenderCard item={props.partner}
+           />
         </div>
       </div>
     </div>
