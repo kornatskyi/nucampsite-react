@@ -16,9 +16,15 @@ import { Link } from "react-router-dom";
 import { LocalForm, Control, Errors } from "react-redux-form";
 import Label from "reactstrap/lib/Label";
 
+
+//can just import in here insted pass through 3 components
+// import {addComment} from '../redux/ActionCreators'
+
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
+
+
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
