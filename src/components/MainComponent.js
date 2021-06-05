@@ -11,7 +11,6 @@ import { connect } from "react-redux";
 import { postComment, fetchCampsites, fetchComments, fetchPromotions } from "../redux/ActionCreators";
 import { actions } from "react-redux-form";
 
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 
 const mapStateToProps = (state) => {
