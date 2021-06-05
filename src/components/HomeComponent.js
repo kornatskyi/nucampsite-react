@@ -19,6 +19,8 @@ function RenderCard({ item, isLoading, errMess }) {
       transformProps={{
         exitTransform: 'scale(0.5) translateY(50%)'
       }}>
+
+      
       <Card>
         <CardImg src={baseUrl + item.image} alt={item.name} />
         <CardBody>
@@ -31,7 +33,7 @@ function RenderCard({ item, isLoading, errMess }) {
 }
 
 function Home(props) {
-  console.log(props);
+  console.log("props", props);
   return (
     <div className="container">
       <div className="row">
@@ -49,6 +51,8 @@ function Home(props) {
         </div>
         <div className="col-md m-1">
           <RenderCard item={props.partner}
+          isLoading={props.partnerLoading}
+          errMess={props.partnerErrMess}
           />
         </div>
       </div>
