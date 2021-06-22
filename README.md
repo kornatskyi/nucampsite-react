@@ -11,7 +11,10 @@ Web site for reserving fake capms. Can be used as a template for another porject
 `npm start`
 
 
-Some data probably will not fetch. To fix open `./src/shared/baseUrl.js` and change `baseUrl` variable to this https://nucampsite-react-json-server.herokuapp.com/
+Some data probably will not fetch. To fix open `./src/shared/baseUrl.js` and change `baseUrl` variable to this https://nucampsite-react-json-server.herokuapp.com/.
+
+Or clone and run json server for this project with local data storage from here https://github.com/kornatskyi/nucampsite-json-server.
+
 
 ### Main technologies and libraries
 - React
