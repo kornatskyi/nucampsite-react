@@ -1,5 +1,5 @@
 # Nucampsite
-Web site for reserving fake capms. Can be used as a template for another porjects.
+Web site for reserving capms. Can be used as a template for another porjects.
 
 ### Install and run
 `git clone https://github.com/kornatskyi/nucampsite-react.git`
